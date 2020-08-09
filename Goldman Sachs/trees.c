@@ -86,6 +86,57 @@ int Find(struct BinaryTreeNode *root, int num)
             }          
         }
     }
-    // incase it is not 
+    // incase it is not present anywhere on the tree
     return 0;
+}
+void insert(struct BinaryTreeNode *root,int num)
+{
+    struct BinaryTreeNode *newNode;
+    struct BinaryTreeNode *temp;
+    newNode =  (struct BinaryTreeNode *)malloc(sizeof(struct BinaryTreeNode));
+    newNode->left = newNode->right = NULL;
+    newNode->data = num;
+    temp = root;
+    if(!newNode)
+    {
+        printf("Memory not allocated \n");
+    }
+    if(root == NULL)
+    {
+        root = newNode;
+        return;        
+    }
+    else
+    {
+        while(!temp)
+        {
+            if(temp->left == NULL)
+            {
+                temp->left = newNode;
+            }
+            else
+            {
+                temp = temp->left;
+            }            
+        }
+    }
+}
+int count = 0;
+int Size (struct BinaryTreeNode *root)
+{
+    if(root == NULL)
+    {
+        return 0;
+    }
+    else
+    {   
+        while(root)
+        {
+            count++;
+            count+= Size(root->left);
+            count += Size(root->right);
+        }
+    }
+    return count;
+    
 }
