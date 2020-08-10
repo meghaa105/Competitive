@@ -149,11 +149,23 @@ int Size (struct BinaryTreeNode *root)
 void main()
 {
     struct BinaryTreeNode *root;
-    root = NULL;
-    insert(root,5);
-    insert(root,15);
-    insert(root,521);
-    preorder(root);
-    postorder(root);
+    root = (struct BinaryTreeNode *)malloc(sizeof(struct BinaryTreeNode));
+    root->data = 5;
+    struct BinaryTreeNode *newNode;
+    newNode = (struct BinaryTreeNode *)malloc(sizeof(struct BinaryTreeNode));
+    root->left = newNode;
+    newNode->data = 8;
+    newNode->left = newNode->right = NULL;
+    root->right = NULL;
+    if(!root)
+    {
+        printf("Hello\n");
+    }
+    while(!root)
+    {
+        printf("%d",root->data);
+        root = root->left;
+    }
+
 
 }
