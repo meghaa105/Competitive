@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<stdlib.h>
 #include<limits.h>
 struct BinaryTreeNode
 {
@@ -63,13 +64,13 @@ int Max(struct BinaryTreeNode *root)
 int Find(struct BinaryTreeNode *root, int num)
 {   
     int temp;
-    if(root == NULL)
+    if(!root)
     {
         return 0;
     }
     else
     {
-        if(root->data == num)
+        if((root->data) == num)
         {
             return 1;
         }
@@ -78,7 +79,7 @@ int Find(struct BinaryTreeNode *root, int num)
             Find(root->left,num);
             if(temp!=0)
             {
-                return temp;
+                return temp ;
             }
             else
             {
@@ -90,33 +91,38 @@ int Find(struct BinaryTreeNode *root, int num)
     return 0;
 }
 void insert(struct BinaryTreeNode *root,int num)
-{
+{       
     struct BinaryTreeNode *newNode;
-    struct BinaryTreeNode *temp;
     newNode =  (struct BinaryTreeNode *)malloc(sizeof(struct BinaryTreeNode));
     newNode->left = newNode->right = NULL;
     newNode->data = num;
-    temp = root;
     if(!newNode)
     {
         printf("Memory not allocated \n");
     }
-    if(root == NULL)
-    {
-        root = newNode;
-        return;        
+    if(!root)
+    {   
+        printf("Check\n");
+        root = newNode;   
+        printf("%d bleh %d \n",root->data);   
+        return;
     }
     else
     {
-        while(!temp)
+        while(!root)
         {
-            if(temp->left == NULL)
+            if(!root->left)
             {
-                temp->left = newNode;
+                printf("Check1 \n");
+                root->left = newNode;
+                printf("%d bleh %d",root->data,root->data); 
+                return;
             }
             else
             {
-                temp = temp->left;
+                printf("Check2 \n");
+                root = root->left;
+                printf("%d bleh %d",root->data,root->data); 
             }            
         }
     }
@@ -139,4 +145,15 @@ int Size (struct BinaryTreeNode *root)
     }
     return count;
     
+}
+void main()
+{
+    struct BinaryTreeNode *root;
+    root = NULL;
+    insert(root,5);
+    insert(root,15);
+    insert(root,521);
+    preorder(root);
+    postorder(root);
+
 }
