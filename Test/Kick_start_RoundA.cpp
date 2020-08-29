@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 // The first line of the input gives the number of test cases, T. T test cases follow. Each test case starts with a line containing the two integers N and P, the number of students and the number of students you need to pick, respectively. Then, another line follows containing N integers Si; the i-th of these is the skill of the i-th student. 
+
 long long team_selection(vector<long> team,long total_stu,long team_final)
 {
         long long min = INT_MAX;
