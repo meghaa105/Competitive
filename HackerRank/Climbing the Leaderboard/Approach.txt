@@ -1,0 +1,5 @@
+I have initialized a stack and have stored only the distinct values in it as we take the input.
+I have tried to exploit the fact that the scores are given in descending order and Alice's scores are given in ascending order.
+So, for each of Alice's score if the topmost value in the stack is less than the score, we pop the value.
+
+Thus, the rank we need would be the size of the stack + 1
