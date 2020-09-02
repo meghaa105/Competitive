@@ -20,7 +20,7 @@ int main()
         {
             if(i%2!=0)
             {
-                cout << "Check";
+                // cout << "Check";
                 int min = INT_MAX;
                 int index = 0;
                 for(int j = i;j<v.size();j++)
