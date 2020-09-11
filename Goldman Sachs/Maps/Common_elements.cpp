@@ -15,7 +15,7 @@ int main()
         while(l1--)
         {
             cin >> temp;
-            m.insert( pair <int,int> (temp,0));
+            m[temp] = 0;
         }
         while(l2--)
         {
@@ -36,6 +36,7 @@ int main()
                 sum = 1;
             }
         }
+        // cout << m.size();
         if(sum == 0)
         {
             cout << -1 << endl;
